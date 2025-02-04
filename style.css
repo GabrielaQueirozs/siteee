@@ -1,0 +1,705 @@
+@charset "UTF-8";
+
+/* Importação de fonts (google fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+/* Variáveis */
+:root {
+    --background: #0f0f0f;
+    --branco: #fff;
+    --amarelo: #e5b567;
+    --azul: #9cdcfe;
+    --azulMedio: #3b468c;
+    --azulEscuro: #05152b;
+    --cinzaClaro: #d6d6d6;
+    --cinza: #858585;
+    --laranja: #e87d3e;
+    --pink: #b05279;
+    --roxo: #9e86c8;
+    --verde: #b4d273;
+    --vermelho: #ff0000;
+    --marrom: #D2B48C;
+    --cinzaescuro: #696969;
+    --marrommmm: #A0522D;
+}
+
+/* CSS Reset (compatibilizar com todos navegadores) */
+* {
+    /* margin: 0; */
+    margin: 0px;
+    padding: 0;
+    border: 0;
+}
+
+/* Layout >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+html {
+    /* rolagem suave do conteúdo*/
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    /* 1em = 100% (tamanho padrão) */
+    background-color: var(--background);
+}
+
+.container {
+    margin: 0 auto;
+    /* centralizar o bloco */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.botao {
+    text-decoration: none;
+    color: var(--marrom);
+    font-size: 1.3em;
+    font-weight: 700;
+    background-color: var(--background);
+    width: 200px;
+    padding: 10px 20px;
+    border: 2px solid var(--branco);
+    border-radius: 25px;
+    align-self: center;
+    margin-top: 30px;
+}
+
+/* Layout para 3 cartões */
+.card {
+    width: 338px;
+    /* height: 520px; */
+    height: 100%;
+    margin-top: 25px;
+    background-color: var(--marrom);
+    border: 1px solid var(--amarelo);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.card img {
+    border-radius: 25px 25px 0px 0px;
+}
+
+.card h3 {
+    margin-top: 15px;
+}
+
+.card p {
+    text-align: left;
+    padding: 10px 30px 50px 30px;
+}
+
+.card a {
+    padding: 10px 100px;
+    border: 0;
+    background-color: var(--branco);
+    color: var(--background);
+}
+#topo{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+
+
+
+
+
+/* Fim do Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/* Smartphone Portrait >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/****** Cabeçalho ******/
+header {
+    height: 65px;
+    /* background-color: #00ffff;*/
+}
+
+#logo img {
+    width: 128px;
+    height: 128px;
+}
+
+#check {
+    display: none;
+}
+
+/* Efeito "deslizar o menu" */
+/* Se check estiver "ticado", crir um estilo para ul*/
+#check:checked~ul {
+    right: 0;
+}
+
+label {
+    font-size: 3em;
+    position: fixed;
+    top: 5px;
+    right: 15px;
+    /* transparência (0 a 1 (100%) */
+    color: rgba(254, 236, 156, 0.9);
+}
+
+nav ul {
+    list-style: none;
+    background-color: rgba(15, 15, 15, 0.9);
+    height: 100vh;
+    position: fixed;
+    top: 65px;
+    right: -50%;
+    width: 50%;
+    transition: all 0.5s;
+}
+
+nav ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--amarelo);
+    text-align: right;
+}
+
+nav ul li a {
+    color: var(--branco);
+    /* remover sublinhado */
+    text-decoration: none;
+}
+
+/****** Banner ******/
+main {
+    height: 90vh;
+    /* ajuste da altura do Banner */
+    background: url(img/baner.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+main h1,
+h2 {
+    /* efeito de sombra nos textos */
+    text-shadow: #000 0.05em 0.05em 0.05em;
+}
+
+main h1 {
+    /* color: var(--amarelo); */
+    color: var(--branco);
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.9em;
+}
+
+main h2 {
+    /* color: var(--amarelo); */
+    color: var(--branco);
+    font-size: 2.2em;
+    margin-top: 25px;
+    font-weight: 800;
+}
+
+/******* Destaque *******/
+#destaque {
+    background: url(img/fnddd.png);
+    background-size: cover;
+    background-position: center;
+    /* espaçamento interno para não encostar na borda da tela do dispositivo */
+    padding: 50px 15px;
+}
+
+/* Atenção!!! Organizando o container após o destaque o estilo é aplicado apenas ao container da seção de destaque */
+#destaque .container {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Para esconder a imagem usamos "display: none" no container da imagem | Para exibir novamente em telas maiores, usamos "display: block" */
+/*
+#imagemDestaque {
+    display: none;
+}
+*/
+#imagemDestaque img {
+    width: 200px;
+    height: 200px;
+    /* arredondar uma imagem quadrada */
+    border-radius: 50%;
+}
+
+#textoDestaque {
+    color: var(--background);
+}
+
+#textoDestaque h2 {    
+    margin-bottom: 20px;
+}
+
+/* Atenção !!! Detalhe do sinal ">" ref. ao elemento imediato */
+#textoDestaque>p {
+    margin-bottom: 15px;
+}
+
+.topicos {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.topicos img {
+    margin-right: 10px;
+}
+
+.topicos p {
+    font-weight: 600;
+}
+
+/****** Sobre ******/
+/* O estilo abaixo será aplicado apenas ao container que está subordinado a section "sobre" */
+#sobre {
+    background-color: var(--background);
+    padding: 60px 15px;
+}
+
+#sobre .container {
+    flex-direction: column;
+}
+
+#sobre h2, p {
+    color: var(--branco);
+}
+
+
+#textoDestaque p {
+    color:#000;
+}
+
+
+#sobre h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#video iframe {
+    width: 350px;
+    height: 191px;
+    margin-top: 20px;
+}
+
+/****** Faixa de destaque ******/
+#faixaDestaque {
+    background: url(img/back.png);
+    background-size: cover;
+    background-position: center;
+    padding: 50px 15px;
+}
+
+#faixaDestaque .container {
+    flex-direction: column;
+}
+
+#imagemFaixa img {
+    width: 256px;
+    height: 256px;
+}
+
+#textoFaixa h2 {
+    color: var(--branco);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+#textoFaixa p {
+    margin-bottom: 50px;
+}
+
+/****** Seção de conteúdo (cards) ******/
+#conteudo {
+    padding: 50px 0px;
+}
+
+#conteudo .container {
+    flex-direction: column;
+    align-items: center;
+}
+
+#conteudo h2 {
+    color: var(--branco);
+    margin-bottom: 25px;
+}
+
+#todos {
+    color: var(--background);
+    margin-top: 50px;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.containerCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+
+/* Fim | Smartphone Portrait >>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+@media (min-width: 370px) {
+    #local{display: none; }   
+}
+
+
+@media (min-width: 400px) {
+    #local{display: none; }   
+}
+/* Smartphone Landscape >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 576px) {
+
+    /****** Layout ******/
+    .container {
+        max-width: 540px;
+        /* background-color: #ffff00;*/
+    }
+
+    /****** Cabeçalho ******/
+    nav ul {
+        right: -25%;
+        width: 25%;
+    }
+
+    /****** Banner ******/
+    main {
+        height: 100vh;
+    }
+
+    main h1 {
+        font-size: 3em;
+    }
+
+    /****** destaque ******/
+    #destaque .container {
+        flex-direction: row;
+    }
+
+    #imagemDestaque {
+        margin-right: 50px;
+    }
+
+    #redesocial{
+        width: 80%;
+        float: left;
+    }
+
+    #maps{
+        display: block;
+    }
+
+    #local{ display: none; }    
+
+    #imagemDestaque img {
+        width: 256px;
+        height: 256px;
+    }
+
+    /****** Sobre ******/
+    #video iframe {
+        width: 560px;
+        height: 315px;
+    }
+}
+
+/* Fim | Smartphone Landscape >>>>>>>>>>>>>>>>>>>>>>*/
+
+
+/* Tablet Portrait >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 768px) {
+
+    /******* Layout ******/
+    .container {
+        max-width: 720px;
+        /* background-color: #00ff00; */
+    }
+
+    /****** Banner ******/
+    main {
+        height: 80vh;
+    }
+
+    main h1 {
+        font-size: 4em;
+    }
+
+    /****** Destaque ******/
+    #imagemDestaque img {
+        width: 440px;
+        height: 440px;
+    }
+
+    #redesocial{
+        width: 80%;
+        float: left;
+    }
+
+    #local{display: block;}
+
+    #maps{display: none;}
+
+    /****** Seção de conteúdo - cards ******/
+    .card {
+        margin: 25px 10px 0px 10px;
+    }
+}
+
+/* Fim | Tablet Portrait >>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+/* Tablet Landscape >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 992px) {
+
+    /****** Layout ******/
+    .container {
+        max-width: 960px;
+        /* background-color: #ffa500; */
+    }
+
+    /****** Banner ******/
+    main {
+        height: 70vh;
+    }
+
+    #maps{display: none;}
+}
+
+/* Fim | Tablet Landscape >>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+/* PCs / Notebooks >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media (min-width: 1200px) {
+
+    /****** Layout ******/
+    .container {
+        max-width: 1140px;
+        /* background-color: #ff009d; */       
+    }
+
+    /****** Cabeçalho ******/
+    header {
+        height: 100px;
+    }
+
+    #logo img {
+        width: 194px;
+        height: 194px;
+    }
+
+    /* Transformação do menu */
+    label {
+        display: none;
+    }
+
+    nav ul {
+        margin-top: 25px;
+        width: 100%;
+        height: auto;
+        position: static;
+        /* remover a cor do background */
+        background-color: transparent;
+    }
+
+    nav ul li {
+        float: left;
+        border: 0;
+    }
+
+    nav ul li a {
+        /* color: var(--amarelo); */
+        color: var(--branco);
+    }
+
+    nav ul li a:hover {
+        /* color: var(--amarelo); */
+        color: var(--branco);
+    }
+
+    /****** Banner ******/
+    main h1 {
+        font-size: 6em;
+    }
+
+    main h2 {
+        font-size: 3em;
+    }
+
+    /****** Destaque ******/
+    #destaque {
+        /* O código abaixo fixa o banner (efeito parallax) */
+        background-attachment: fixed;
+    }
+
+    /******* Sobre ******/
+    #sobre .container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #video iframe {
+        margin: 0;
+    }
+
+    /***** Faixa de destaque ******/
+    #faixaDestaque {
+        background-attachment: fixed;
+    }
+
+    #faixaDestaque .container {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    #imagemFaixa img {
+        width: 400px;
+        height: 400px;
+    }  
+    #imagemFaixa2 img {
+        width: 100px;
+        height: 100px;
+        padding-right: 300px;
+    }  
+    #imagemFaixa2 {
+        width: 100%;
+        height: 100px;
+        padding-right: 300px;
+        padding-bottom: 100px;
+    }  
+
+    #maps{display: none;}
+   
+}
+/* RODAPE */
+address {
+    padding: 35px 10px 50px 10px;
+    background: url(img/fnddd.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000000;
+}
+
+address a {
+    text-decoration: none;
+    color:#0e0d0d;
+  }
+  
+  address img {
+    padding-top: 15px;
+  }
+  
+  #iconeLocal {
+    display: none;
+  }
+  
+  #dados {
+    margin: 30px 0px 15px 0px;
+  }
+  
+  #googleMaps {
+    display: none;
+  }
+  
+  footer {
+    padding: 50px 0px;
+    background-color: #343538;
+    font-size: 0.875em;
+    color: #050505;
+    text-align: center;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  #social {
+    margin-bottom: 25px;
+  }
+
+
+
+
+
+/* footer */
+footer {
+    padding: 30px 0px;
+    background-color: var(--amarelo);
+    font-size: 0.875em;
+    color: #0c0c0c;
+    text-align: center;
+}
+footer .container{
+    flex-direction: column;
+}
+#autor p{
+    font-size: 1.4em;
+    color:var(--background);
+}
+#redesocial{
+    width: 75%;
+    float: left;
+}
+#redesocial img{
+    width: 23px;
+    height: 23px;
+}
+#redesocial2 img{
+    width: 46px;
+    height: 46px;
+}
+
+
+
+
+/* Fim | PCs / Notebooks >>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+/* Telas Grandes (FullHD / 4K / SmartTV) >>>>>>>>>>>*/
+@media (min-width: 1400px) {
+
+    /****** Layout ******/
+    .container {
+        max-width: 1360px;
+        /* background-color: #7d5b8c; */
+    }
+
+    /****** Banner ******/
+    main {
+        height: 100vh;
+    }
+
+    main h1 {
+        font-size: 6.5em;
+    }
+
+    main h2 {
+        font-size: 4em;
+    }
+}
+
+/*
+Novas alterações
+*/
+
+#rodape mapa {
+    justify-content: space-around;
+}
+.contato{
+    flex-direction: row-reverse;
+    max-width: 1140px;
+    justify-content: space-around;
+}
+
+/* Fim | Telas Grandes (FullHD / 4K / SmartTV) >>>>>*/
