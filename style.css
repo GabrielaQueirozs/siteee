@@ -509,6 +509,9 @@ main h2 {
         /* remover a cor do background */
         background-color: transparent;
     }
+    #check:checked~ul {
+        right: 0;
+      }
 
     nav ul li {
         float: left;
@@ -580,15 +583,33 @@ main h2 {
    
 }
 /* RODAPE */
-address {
+/*address {
     padding: 35px 10px 50px 10px;
     background: url(img/fnddd.png);
     background-size: cover;
     background-position: center;
     background-position: center;
     background-attachment: fixed;
-    color: #000000;
-}
+    color: #000000; */
+
+address {
+        padding: 35px 10px 50px 10px;
+        font: 1em sans-serif;
+        justify-items: end;
+        margin-left: 0px;
+        width: 100%;
+        background: url(img/fnddd.png);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #000000;
+    
+        display: flex;  /* Torna o container flexível */
+        flex-direction: column; /* Organiza os itens em coluna */
+        align-items: center;  /* Alinha o conteúdo horizontalmente */
+        justify-content: center; /* Alinha o conteúdo verticalmente */
+    }
+
 
 address a {
     text-decoration: none;
@@ -607,9 +628,7 @@ address a {
     margin: 30px 0px 15px 0px;
   }
   
-  #googleMaps {
-    display: none;
-  }
+
   
   footer {
     padding: 50px 0px;
@@ -636,7 +655,7 @@ address a {
 footer {
     padding: 30px 0px;
     background-color: var(--amarelo);
-    font-size: 0.875em;
+    font-size: 0.87em;
     color: #0c0c0c;
     text-align: center;
 }
@@ -695,6 +714,7 @@ Novas alterações
 
 #rodape mapa {
     justify-content: space-around;
+
 }
 .contato{
     flex-direction: row-reverse;
